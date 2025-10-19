@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import 'dotenv/config';
 async function runChat(prompt) {
   const ai = new GoogleGenAI({
-    apiKey:  process.env.GOOGLE_API_KEY,
+    apiKey:  AIzaSyCA0zv53hJOYh3SPeJRnf0dugwOjeOLdto,
   });
 
   const tools = [
