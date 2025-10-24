@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import "./Main.css"
 import { assets } from '../assets/assets'
 import { LiaCompassSolid } from "react-icons/lia";
@@ -10,9 +10,24 @@ import { TbSend2 } from "react-icons/tb";
 import { VscMic } from "react-icons/vsc";
 import { BiImageAdd } from "react-icons/bi";
 import { Context } from '../contest/Contest';
+import { useRef } from 'react';
 
 
 const Main = () => {
+  const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useContext(Context)
+const inputRef = useRef(input);
+useEffect(() => { inputRef.current = input }, [input]);
+
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onSent(inputRef.current);
+    }
+  };
+  document.addEventListener("keydown", handleKeyDown);
+  return () => document.removeEventListener("keydown", handleKeyDown);
+}, []);
+
   const suggestions = [
       {
         prompt:"Suggest a beautiful place",
@@ -31,9 +46,8 @@ const Main = () => {
         icon:<FaReact className='icon'/>
       },
   ]
-  const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useContext(Context)
   return (
-    <div className='main'>
+    <div className='main'  >
       <div className='nav'>
         <p>3D creator</p>
         <img src={assets.user_icon} alt="" />
@@ -84,7 +98,7 @@ const Main = () => {
           <div>
             <BiImageAdd className='icon'/>
             <VscMic className='icon'/>
-            {input?<TbSend2 className='icon' onClick={() => onSent()}/>:null}  
+            {input?<TbSend2 className='icon' onClick={() => onSent(input)}/>:null}  
           </div>
         </div>
 
