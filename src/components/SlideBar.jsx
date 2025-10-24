@@ -15,7 +15,7 @@ import { Context } from '../contest/Contest';
 
 const SlideBar = () => {
     const [extended,setExtended] = useState(false);
-    const {onSent,prevPrompt,setRecentPrompt,newChat} = useContext(Context)
+    const {prevPrompt,setRecentPrompt,newChat} = useContext(Context)
 
     const loadPrompt = async (prompt) => {
         setRecentPrompt(prompt)
