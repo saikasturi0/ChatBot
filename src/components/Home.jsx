@@ -65,7 +65,7 @@ const Home = () => {
         </main>
 
         <spline-viewer
-          class="robot-3d"
+          className="robot-3d"
           url="https://prod.spline.design/NyzabPdtRyuHRFPp/scene.splinecode"
         ></spline-viewer>
       </div>
