@@ -49,15 +49,13 @@ const Home = () => {
               <p>Ready to explore the future of design and interaction?</p>
               <p>I'm your virtual assistant</p>
               <p>Click 'Get Started' to begin asking your questions!</p>
-
-
             </div>
 
             <div className="buttons">
               <a href="https://www.chatbot.com/help/build-your-chatbot/how-to-build-your-chatbot/" className="btn-get-started">
                 Documentation
               </a>
-              <p  onClick={()=>navigate('/chatBot')} className="btn-signing-main">
+              <p onClick={()=>navigate('/chatBot')} className="btn-signing-main">
                 Get Started
               </p>
             </div>

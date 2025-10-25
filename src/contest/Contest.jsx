@@ -23,11 +23,13 @@ const ContextProvider = (props) => {
         setLoading(false);
         setShowResult(false);
     }
+    
     const onSent = async (prompt) => {
 
         setResultData("");
         setLoading(true);
         setShowResult(true);
+
         console.log(prompt)
         let response;
         if(prompt !== undefined){
@@ -39,6 +41,7 @@ const ContextProvider = (props) => {
             setRecentPrompt(input)
         }
         let responseArray = response.split("**");
+        console.log(responseArray);
         let newResponse = "";
         for(let i=0;i<responseArray.length;i++){
             if(i === 0 || i%2 !=0){

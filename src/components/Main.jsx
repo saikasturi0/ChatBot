@@ -15,18 +15,18 @@ import { useRef } from 'react';
 
 const Main = () => {
   const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useContext(Context)
-const inputRef = useRef(input);
-useEffect(() => { inputRef.current = input }, [input]);
+  const inputRef = useRef(input);
+  useEffect(() => { inputRef.current = input }, [input]);
 
-useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      onSent(inputRef.current);
-    }
-  };
-  document.addEventListener("keydown", handleKeyDown);
-  return () => document.removeEventListener("keydown", handleKeyDown);
-}, []);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+        onSent(inputRef.current);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const suggestions = [
       {
