@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 
 async function runChat(prompt) {
   const ai = new GoogleGenAI({
-    apiKey: "", 
+    apiKey: "AIzaSyCA0zv53hJOYh3SPeJRnf0dugwOjeOLdto", 
   });
 
   const tools = [{ googleSearch: {} }];
