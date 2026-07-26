@@ -1,0 +1,143 @@
+.transition-page {
+  min-height: 100vh;
+  background: #050508;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.transition-glow-top {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2), transparent 70%);
+  filter: blur(80px);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.transition-glow-bottom {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(100, 60, 200, 0.12), transparent 70%);
+  filter: blur(70px);
+  bottom: -100px;
+  left: -100px;
+  pointer-events: none;
+}
+
+.transition-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  z-index: 1;
+}
+
+/* Progress ring + bot avatar */
+.bot-progress-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-svg {
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.progress-circle {
+  animation-name: progress-fill;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.bot-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: rgba(180, 76, 255, 0.08);
+  border: 1px solid rgba(180, 76, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bot-bob 2.4s ease-in-out infinite;
+}
+
+.eye {
+  transform-origin: center;
+  animation: eye-blink 3s ease-in-out infinite;
+}
+
+/* Text */
+.transition-text {
+  text-align: center;
+}
+
+.welcome-line {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.welcome-line span {
+  color: #b44cff;
+}
+
+.status-line {
+  color: #5a5a72;
+  font-size: 12.5px;
+  margin: 0;
+  letter-spacing: 0.4px;
+  min-height: 16px;
+}
+
+/* Progress bar */
+.progress-bar-track {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7c3aed, #b44cff);
+  border-radius: 100px;
+  animation-name: bar-fill;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* Keyframes */
+@keyframes bot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes eye-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+@keyframes progress-fill {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes bar-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
